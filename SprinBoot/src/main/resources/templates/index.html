@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sistema de Empleados</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<div class="container my-2">
+	
+	<h1>Listado Empleados</h1>
+	<a th:href = "@{/showNewEmployeeForm}"  class="btn btn-primary" >Agregar Empleado</a>
+	<br>
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Nombres</th>
+					<th>Apellidos</th>
+					<th>Correo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee : ${listEmployees}">
+					<td th:text="${employee.firstName}"></td>
+					<td th:text="${employee.lasName}"></td>
+					<td th:text="${employee.email}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
