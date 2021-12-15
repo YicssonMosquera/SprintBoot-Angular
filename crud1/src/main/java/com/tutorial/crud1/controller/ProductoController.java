@@ -22,7 +22,7 @@ import com.tutorial.crud1.entity.Producto;
 import com.tutorial.crud1.service.ProductoService;
 
 @RestController
-@RequestMapping("producto")
+@RequestMapping("/api/producto")
 @CrossOrigin("*")
 public class ProductoController {
 
@@ -38,17 +38,17 @@ public class ProductoController {
 	
 	//ruta para cargar datos teniendo como parametro el id
 	@GetMapping("/detail/{id}")
-	public ResponseEntity<Producto> getById(@PathVariable ("id") int Id){
-		if(productoService.existsById(Id))
+	public ResponseEntity<Producto> getById(@PathVariable ("id") int id){
+		if(!productoService.existsById(id))
 			return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
-		Producto producto = productoService.getOne(Id).get();
+		Producto producto = productoService.getOne(id).get();
 		return new ResponseEntity<Producto>(producto, HttpStatus.OK);
 	}
 	
 	//ruta para cargar datos teniendo como parametro el Nombre
 	@GetMapping("/detailname/{nombre}")
 	public ResponseEntity<Producto> getByNombre(@PathVariable ("nombre") String nombre){
-		if(productoService.existsByNombre(nombre))
+		if(!productoService.existsByNombre(nombre))
 			return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
 		Producto producto = productoService.getByNombre(nombre).get();
 		return new ResponseEntity<Producto>(producto, HttpStatus.OK);
@@ -62,7 +62,7 @@ public class ProductoController {
 			return new ResponseEntity(new Mensaje("el nombre es obligatorio"),HttpStatus.BAD_REQUEST);
 		
 		//validacion que no me traiga precio vacio
-		if(productoDto.getPrecio() < 0)
+		if(productoDto.getPrecio() == null || productoDto.getPrecio() < 0)
 			return new ResponseEntity(new Mensaje("el precio es obligatorio o debe ser mayor a 0"),HttpStatus.BAD_REQUEST);
 		
 		//validacion para no repetir el producto por medio del nombre
@@ -79,7 +79,7 @@ public class ProductoController {
 	public ResponseEntity<?> update(@PathVariable("id") int id,  @RequestBody ProductoDto productoDto){
 		
 		//comprobar el producto por medio del id
-		if(productoService.existsById(id))
+		if(!productoService.existsById(id))
 			return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
 		
 		//validacion para acualizar un producto con el nombre de otro que ya exciste
@@ -102,7 +102,7 @@ public class ProductoController {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") int id){
 		//comprobar el producto por medio del id
-		if(productoService.existsById(id))
+		if(!productoService.existsById(id))
 			return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
 		productoService.delete(id);
 		return new ResponseEntity(new Mensaje("producto eliminado"),HttpStatus.OK);

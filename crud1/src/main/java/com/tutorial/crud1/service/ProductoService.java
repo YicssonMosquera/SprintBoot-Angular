@@ -23,8 +23,8 @@ public class ProductoService {
 	}
 	
 	//traer uno por medio del Id
-	public Optional<Producto> getOne(int Id){
-		return productoRepository.findById(Id);
+	public Optional<Producto> getOne(int id){
+		return productoRepository.findById(id);
 	}
 	
 	//traer dato por medio del nombre
@@ -38,13 +38,13 @@ public class ProductoService {
 	}
 	
 	//Eliminar un producto
-	public void delete(int Id) {
-		productoRepository.deleteById(Id);
+	public void delete(int id) {
+		productoRepository.deleteById(id);
 	}
 	
 	//si existe el producto por medio del Id
-	public boolean existsById(int Id) {
-		return productoRepository.existsById(Id);
+	public boolean existsById(int id) {
+		return productoRepository.existsById(id);
 	}
 	
 	//si existe el producto por medio del nombre

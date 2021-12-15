@@ -1,0 +1,34 @@
+<div class="y-card" style="height: 100%; width: 100%;">
+    <div class="y-card-header">
+
+    </div>
+    <div class="y-card-body" style="overflow: hidden; padding: 5px;">
+        <p-table [value]="producto" styleClass="p-datatable-sm p-datatable-gridlines"
+        tableStyleClass="prime-table"  selectionMode="single" dataKey="code" [scrollable]="true" scrollHeight="flex"
+        (onRowSelect)="onRowSelect($event)">
+        <ng-template pTemplate="header">
+            <tr tableStyleClass="header">
+                <th style="flex: 0.1; justify-content: space-around;">#</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+              
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data  let-i="rowIndex">
+            <tr [pSelectableRowDblClick]="data">
+                <td style="flex: 0.1; justify-content: space-around;">{{i + 1}}</td>
+                <td>{{data.nombre}}</td>
+                <td>{{data.precio}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    
+    </div>
+    <div class="y-card-footer" style="padding: 0px;">
+
+    </div>
+
+
+
+</div>

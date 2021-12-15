@@ -5,8 +5,11 @@ import javax.validation.constraints.NotBlank;
 
 public class ProductoDto {
 
+	//anotacion de para validar que no haya campos vacios ni espacios en blanco javax.validation.constraints.NotBlank
     @NotBlank
     private String nombre;
+   
+    //anotaion para validar que el numero de datos minimo en los numericos sea 0 javax.validation.constraints.Min
     @Min(0)
     private Float precio;
 
