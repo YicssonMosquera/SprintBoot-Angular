@@ -15,8 +15,8 @@ export class NavigationServiceService {
         label:'Menu',
         expanded:true,
         children:[
-          {label:'Productos',icon:'fas fa-users',recurso:'producto',ruta:'productos'},
-          {label:'Persona',icon:'fas fa-users',recurso:'producto',ruta:'personas'}
+          {label:'Productos',icon:'fas fa-hand-holding-usd',recurso:'producto',ruta:'mainApp/productos'},
+          {label:'Persona',icon:'fas fa-users',recurso:'producto',ruta:'mainApp/personas'}
         ]
       }
     ]

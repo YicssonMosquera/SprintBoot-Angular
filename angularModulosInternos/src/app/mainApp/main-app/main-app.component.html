@@ -1,9 +1,11 @@
 <div class="y-card" style="height: 100%;">
-  <div class="y-card-header" style="background-color: aquamarine; display: flex;">
-      <h3>
-            Productos
+  <div class="y-card-header y-navbar" >
+    <button  pButton type="button" style="margin-left: 7px; background-color: #3a6073; border: none;" (click)="visibleSidebar1 = true" icon="pi pi-bars"></button>
+    <h3 style="color: azure; margin-left: 7px;">
+            Desarollo Sprint
       </h3>
-      <p-button style="margin-top: 10px; margin-left: 8px;" type="button" (click)="visibleSidebar1 = true" icon="pi pi-arrow-right"></p-button>
+      <button type="button" class="btn btn-outline-success" id="salir"><strong> Salir   </strong>  <i style="font-size: 16px;"
+        class="fas fa-sign-out-alt"></i></button>
   </div>
   <div class="y-card-body" style="overflow: hidden;">
     <router-outlet></router-outlet>
@@ -13,6 +15,6 @@
 
 
 <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
-    <h1 style="font-weight:normal">Menu</h1>
+    <h1 style="font-weight:normal;"><strong>Productos</strong></h1>
      <app-navigation></app-navigation>
 </p-sidebar>

@@ -1,0 +1,16 @@
+#salir{
+    background: transparent;
+    border-color: transparent;
+    color: azure;
+    position: absolute;
+    right: 1px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.y-navbar{
+    height: 53px;
+    display: flex;
+    align-items: center;
+    background-color: #3a6073;
+}

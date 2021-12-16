@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {PrimeNGModule} from './shared/prime-ng/prime-ng.module'
-import {PersonaModule} from './persona/persona.module'
-import {ProductosModule} from './productos/productos.module'
 //external module
 import { ToastrModule } from 'ngx-toastr';
 import { NavigationComponent } from './navigation/components/navigation/navigation.component';
@@ -28,8 +26,6 @@ import { MainAppComponent } from './mainApp/main-app/main-app.component';
     BrowserAnimationsModule,
     PrimeNGModule,
     ToastrModule.forRoot(),
-    PersonaModule,
-    ProductosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
