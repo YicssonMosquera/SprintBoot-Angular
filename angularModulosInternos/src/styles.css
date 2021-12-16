@@ -24,3 +24,7 @@ body { overflow: auto; margin: 0; font-family: Roboto, "Helvetica Neue", sans-se
     background-color: rgb(233, 232, 232);
     
   }
+
+  .p-sidebar-left{
+    width: 16rem !important;
+  }

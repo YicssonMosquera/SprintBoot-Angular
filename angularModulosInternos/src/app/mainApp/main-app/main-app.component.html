@@ -1,0 +1,18 @@
+<div class="y-card" style="height: 100%;">
+  <div class="y-card-header" style="background-color: aquamarine; display: flex;">
+      <h3>
+            Productos
+      </h3>
+      <p-button style="margin-top: 10px; margin-left: 8px;" type="button" (click)="visibleSidebar1 = true" icon="pi pi-arrow-right"></p-button>
+  </div>
+  <div class="y-card-body" style="overflow: hidden;">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
+<p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+    <h1 style="font-weight:normal">Menu</h1>
+     <app-navigation></app-navigation>
+</p-sidebar>

@@ -10,6 +10,7 @@ import {ProductosModule} from './productos/productos.module'
 //external module
 import { ToastrModule } from 'ngx-toastr';
 import { NavigationComponent } from './navigation/components/navigation/navigation.component';
+import { MainAppComponent } from './mainApp/main-app/main-app.component';
 
 
 
@@ -17,6 +18,7 @@ import { NavigationComponent } from './navigation/components/navigation/navigati
   declarations: [
     AppComponent,
     NavigationComponent,
+    MainAppComponent,
  
   ],
   imports: [

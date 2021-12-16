@@ -11,7 +11,7 @@ import {FileUploadModule} from 'primeng/fileupload';
 import { KnobModule } from "primeng/knob";
 import {TreeModule} from 'primeng/tree';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {SidebarModule} from 'primeng/sidebar';
 
 @NgModule({
   declarations: [],
@@ -27,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TreeModule,
     FormsModule,
     ReactiveFormsModule,
+    SidebarModule
     
     
   ],
@@ -42,6 +43,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TreeModule,
     FormsModule,
     ReactiveFormsModule,
+    SidebarModule
     
     
   ],
