@@ -10,6 +10,7 @@ import {PaginatorModule} from 'primeng/paginator';
 import {FileUploadModule} from 'primeng/fileupload';
 import { KnobModule } from "primeng/knob";
 import {TreeModule} from 'primeng/tree';
+import {InputTextModule} from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {SidebarModule} from 'primeng/sidebar';
 
@@ -27,7 +28,8 @@ import {SidebarModule} from 'primeng/sidebar';
     TreeModule,
     FormsModule,
     ReactiveFormsModule,
-    SidebarModule
+    SidebarModule,
+    InputTextModule
     
     
   ],
@@ -43,7 +45,8 @@ import {SidebarModule} from 'primeng/sidebar';
     TreeModule,
     FormsModule,
     ReactiveFormsModule,
-    SidebarModule
+    SidebarModule,
+    InputTextModule
     
     
   ],

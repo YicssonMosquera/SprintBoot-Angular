@@ -18,7 +18,6 @@ export class NavigationComponent implements OnInit {
   }
 
   nodeSelect(event:any){
-   console.log(event.node.ruta);
    this.router.navigate(["/"+event.node.ruta+""]);
    
   }

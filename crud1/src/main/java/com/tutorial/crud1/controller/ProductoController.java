@@ -44,7 +44,7 @@ public class ProductoController {
 		Producto producto = productoService.getOne(id).get();
 		return new ResponseEntity<Producto>(producto, HttpStatus.OK);
 	}
-	
+	 
 	//ruta para cargar datos teniendo como parametro el Nombre
 	@GetMapping("/detailname/{nombre}")
 	public ResponseEntity<Producto> getByNombre(@PathVariable ("nombre") String nombre){
@@ -82,15 +82,19 @@ public class ProductoController {
 		if(!productoService.existsById(id))
 			return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
 		
-		//validacion para acualizar un producto con el nombre de otro que ya exciste
+		//validacion para acualizar un producto con el nombre de otro que ya existe
 		if(productoService.existsByNombre(productoDto.getNombre()) && productoService.getByNombre(productoDto.getNombre()).get().getId() !=id)
 			return new ResponseEntity(new Mensaje("ese nombre ya existe"),HttpStatus.BAD_REQUEST);
 		
+		//comprobar que el nombre no este en blanco
 		if(StringUtils.isAllBlank(productoDto.getNombre()))
 			return new ResponseEntity(new Mensaje("el nombre es obligatorio"),HttpStatus.BAD_REQUEST);
-		if(productoDto.getPrecio() < 0)
+		
+		//validacion para que el presio sea obligatorio o no sea menor a cero 
+		if(productoDto.getPrecio() == null || productoDto.getPrecio() < 0)
 			return new ResponseEntity(new Mensaje("el precio es obligatorio o debe ser mayor a 0"),HttpStatus.BAD_REQUEST);
 		
+		//obtener el producto a partir del Id para actualizarlo
 		Producto producto = productoService.getOne(id).get();
 		producto.setNombre(productoDto.getNombre());
 		producto.setPrecio(productoDto.getPrecio());

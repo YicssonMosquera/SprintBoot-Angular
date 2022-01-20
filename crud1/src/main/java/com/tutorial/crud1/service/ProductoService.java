@@ -11,6 +11,7 @@ import com.tutorial.crud1.entity.Producto;
 import com.tutorial.crud1.repository.ProductoRepository;
 
 @Service
+//mantiene la coherencia con la base de datos
 @Transactional
 public class ProductoService {
 
