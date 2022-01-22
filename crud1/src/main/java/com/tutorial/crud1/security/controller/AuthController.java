@@ -60,14 +60,14 @@ public class AuthController {
 			return new ResponseEntity(new Mensaje("Campos mal puestos o email invalido"), HttpStatus.BAD_REQUEST);
 		
 		//validacion que el nombre del usuario sea unico
-		if(usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsiario()))
+		if(usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario()))
 			return new ResponseEntity(new Mensaje("ese nombre ya existe"), HttpStatus.BAD_REQUEST);
 		
 		//validacion que el email sea unico
 		if(usuarioService.existsByEmail(nuevoUsuario.getEmail()))
 			return new ResponseEntity(new Mensaje("ese email ya existe"), HttpStatus.BAD_REQUEST);
 		
-		Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsiario(), nuevoUsuario.getEmail(), passwordEncoder.encode(nuevoUsuario.getPassword()));
+		Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(), nuevoUsuario.getEmail(), passwordEncoder.encode(nuevoUsuario.getPassword()));
 		Set<Rol> roles = new HashSet<>();
 		roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
 		
@@ -84,7 +84,7 @@ public class AuthController {
 	public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult){
 		if(bindingResult.hasErrors())
 			return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);
-		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUsuario.getNombreUsiario(), loginUsuario.getPassword()));
+		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUsuario.getNombreUsuario(), loginUsuario.getPassword()));
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		String jwt = jwtProvider.generateToken(authentication);
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal();

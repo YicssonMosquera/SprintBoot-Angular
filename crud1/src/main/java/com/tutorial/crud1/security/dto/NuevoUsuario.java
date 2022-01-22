@@ -10,23 +10,27 @@ public class NuevoUsuario {
 	
 	@NotBlank
 	private String nombre;
+	
 	@NotBlank
-	private String nombreUsiario;
+	private String nombreUsuario;
+	
 	@Email
 	private String email;
+	
 	@NotBlank
 	private String password;
+	
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getNombreUsiario() {
-		return nombreUsiario;
+	public String getNombreUsuario() {
+		return nombreUsuario;
 	}
-	public void setNombreUsiario(String nombreUsiario) {
-		this.nombreUsiario = nombreUsiario;
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
 	}
 	public String getEmail() {
 		return email;

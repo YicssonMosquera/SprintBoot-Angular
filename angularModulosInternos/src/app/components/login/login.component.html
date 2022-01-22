@@ -1,0 +1,42 @@
+<div   class="text-center" *ngIf="isLogged; else loggedOut">
+<h2>
+    Ya has iniciado sesión
+</h2>
+</div>
+
+<ng-template #loggedOut>
+    <div class="container d-flex justify-content-center" style="margin-top: 10%;">
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" routerLink="/">Iniciar Sessión</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/registro">Registrarse</a>
+                    </li>
+                  </ul>
+            </div>
+            <div class="card-body">
+                <form action="" [formGroup]="formLogin" (ngSubmit)="onLogin()"  novalidate>
+                    <div class="form-group">
+                        <label for="nombreUsuario" >Nombre de Usuario</label>
+                        <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" formControlName="nombreUsuario">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" >password</label>
+                        <input type="password" class="form-control" name="password" id="password" formControlName="password">
+                    </div>
+
+                    <div class="form-group" style="margin-top: 5px;">
+                        <button style="width: 100%;" class="btn btn-outline-success btn-block" [disabled]="!formLogin.valid" > <i class="fas fa-sign-in-alt"></i>  Iniciar Sessión</button>
+                    </div>
+                </form>
+                <div *ngIf="isLoginFail"  class="alert alert-danger mt-3">
+                    Usuario y/o contraseña incorrecto
+                </div>
+            </div>
+        </div>
+    </div> 
+</ng-template>
